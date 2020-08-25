@@ -3,7 +3,7 @@ import { decode } from '../utils/base64'
 import unwrap from '../utils/unwrap'
 import { config } from '../'
 
-export default async function(keyBuffer, format, usage) {
+export default async function(keyBuffer, format, usage, extractable=false) {
   if (!keyBuffer) throw 'Key is Empty'
 
   // https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/importKey
@@ -14,7 +14,7 @@ export default async function(keyBuffer, format, usage) {
       name: config.rsa.name,
       hash: config.rsa.hash
     },
-    false, //extractable
+    extractable,
     usage
   )
 }

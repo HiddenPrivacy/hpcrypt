@@ -1,6 +1,6 @@
-import { encode } from '../utils/base64'
-import wrap from '../utils/wrap'
 import subtle from '../utils/subtle'
+import exportPrivateKey from './exportPrivateKey'
+import exportPublicKey from './exportPublicKey'
 import { config } from '../'
 
 /**
@@ -17,15 +17,9 @@ export default async function() {
     'decrypt'
   ])
 
-  // https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/exportKey
-  let privateKey = wrap(
-    encode(await subtle.exportKey('pkcs8', cryptoKeyPair.privateKey)),
-    'PRIVATE KEY'
-  )
-  let publicKey = wrap(
-    encode(await subtle.exportKey('spki', cryptoKeyPair.publicKey)),
-    'PUBLIC KEY'
-  )
+
+  let privateKey = await exportPrivateKey(cryptoKeyPair.privateKey)
+  let publicKey = await exportPublicKey(cryptoKeyPair.publicKey)
 
   return {
     privateKey,
