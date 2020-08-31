@@ -6,7 +6,7 @@
  */
 
 export default function(size) {
-  let typedArray = new Uint8Array(size)
+  const typedArray = new Uint8Array(size)
   window.crypto.getRandomValues(typedArray)
 
   return typedArray

@@ -9,7 +9,7 @@ import { config } from '../'
  * @throws {Error}
  */
 export default async function() {
-  let cryptoKey = await subtle.generateKey(
+  const cryptoKey = await subtle.generateKey(
     {
       name: config.aes.name,
       length: config.aes.length

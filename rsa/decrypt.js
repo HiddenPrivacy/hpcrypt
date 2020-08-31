@@ -11,7 +11,7 @@ import { config } from '../'
  * @throws {Error}
  */
 export default async function(privateKey, cipherBuffer) {
-  let buffer = await subtle.decrypt(
+  const buffer = await subtle.decrypt(
     {
       name: config.rsa.name,
       hash: { name: config.rsa.hash } // has was added because MS Edge

@@ -12,14 +12,14 @@ import { config } from '../'
  */
 
 export default async function() {
-  let cryptoKeyPair = await subtle.generateKey(config.rsa, true, [
+  const cryptoKeyPair = await subtle.generateKey(config.rsa, true, [
     'encrypt',
     'decrypt'
   ])
 
 
-  let privateKey = await exportPrivateKey(cryptoKeyPair.privateKey)
-  let publicKey = await exportPublicKey(cryptoKeyPair.publicKey)
+  const privateKey = await exportPrivateKey(cryptoKeyPair.privateKey)
+  const publicKey = await exportPublicKey(cryptoKeyPair.publicKey)
 
   return {
     privateKey,

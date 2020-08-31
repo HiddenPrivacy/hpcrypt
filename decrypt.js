@@ -11,11 +11,11 @@ import { decode } from './utils/base64'
  * @throws {Error}
  */
 export default async function(privateKey, cipher) {
-  let ciphers = cipher.split('@')
-  let cipherBufferAES = decode(ciphers[0])
-  let cipherBufferRSA = decode(ciphers[1])
-  let keyRSA = await rsa.importPrivateKey(privateKey)
-  let hash = await rsa.decrypt(keyRSA, cipherBufferRSA)
+  const ciphers = cipher.split('@')
+  const cipherBufferAES = decode(ciphers[0])
+  const cipherBufferRSA = decode(ciphers[1])
+  const keyRSA = await rsa.importPrivateKey(privateKey)
+  const hash = await rsa.decrypt(keyRSA, cipherBufferRSA)
 
   const KVH = await aes.importHash(hash)
   return await aes.decrypt(KVH, cipherBufferAES)

@@ -10,6 +10,6 @@ import textEncode from './utils/textEncode'
  * @throws {Error}
  */
 export default async function(publicKey, text) {
-  let buffer = textEncode(text)
+  const buffer = textEncode(text)
   return encrypt(publicKey, buffer)
 }

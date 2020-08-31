@@ -3,7 +3,7 @@ export default function(buffer) {
     return new TextDecoder().decode(buffer)
   }
 
-  var str = String.fromCharCode.apply(null, new Uint8Array(buffer))
+  const str = String.fromCharCode.apply(null, new Uint8Array(buffer))
 
   return decodeURIComponent(escape(str))
 }

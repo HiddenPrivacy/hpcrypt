@@ -9,6 +9,6 @@ import subtle from '../utils/subtle'
  * @throws {Error}
  */
 export default async function(key) {
-  let arrayBuffer = await subtle.exportKey('raw', key)
+  const arrayBuffer = await subtle.exportKey('raw', key)
   return new Uint8Array(arrayBuffer)
 }

@@ -27,7 +27,5 @@ export default async function(privateKey) {
     ["encrypt"]
   )
 
-  console.log(key2)
-
   return await exportPublicKey(key2)
 }

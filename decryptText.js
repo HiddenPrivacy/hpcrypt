@@ -10,6 +10,6 @@ import textDecode from './utils/textDecode'
  * @throws {Error}
  */
 export default async function(privateKey, cipher) {
-  let buffer = await decrypt(privateKey, cipher)
+  const buffer = await decrypt(privateKey, cipher)
   return textDecode(buffer)
 }

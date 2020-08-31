@@ -12,11 +12,11 @@ import { encode } from './utils/base64'
  * @throws {Error}
  */
 export default async function(publicKey, buffer) {
-  let aesKVH = await aes.generateKVH()
-  let hashAES = encode(await aes.encrypt(aesKVH, buffer))
+  const aesKVH = await aes.generateKVH()
+  const hashAES = encode(await aes.encrypt(aesKVH, buffer))
 
-  let keyRSA = await rsa.importPublicKey(publicKey)
-  let hashRSA = encode(await rsa.encrypt(keyRSA, aesKVH.hash))
+  const keyRSA = await rsa.importPublicKey(publicKey)
+  const hashRSA = encode(await rsa.encrypt(keyRSA, aesKVH.hash))
 
   return [hashAES, hashRSA].join('@')
 }

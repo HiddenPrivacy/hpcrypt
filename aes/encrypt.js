@@ -13,8 +13,8 @@ import { config } from '../'
  * @throws {Error}
  */
 export default async function(KVH, buffer) {
-  let tempAdditionalData = new Uint8Array(1)
-  let cipherBuffer = await subtle.encrypt(
+  const tempAdditionalData = new Uint8Array(1)
+  const cipherBuffer = await subtle.encrypt(
     {
       name: config.aes.name,
       iv: KVH.iv,

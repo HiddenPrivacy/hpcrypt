@@ -12,7 +12,7 @@ import textDecode from '../utils/textDecode'
  * @throws {Error}
  */
 export default async function(privateKey, cipher) {
-  let keyRSA = await importPrivateKey(privateKey)
-  let buffer = await decrypt(keyRSA, decode(cipher))
+  const keyRSA = await importPrivateKey(privateKey)
+  const buffer = await decrypt(keyRSA, decode(cipher))
   return textDecode(buffer)
 }
