@@ -17,6 +17,6 @@ export default async function(privateKey, cipher) {
   const keyRSA = await rsa.importPrivateKey(privateKey)
   const hash = await rsa.decrypt(keyRSA, cipherBufferRSA)
 
-  const KVH = await aes.importHash(hash)
-  return await aes.decrypt(KVH, cipherBufferAES)
+  const keyIV = await aes.importKeyIV(hash)
+  return await aes.decrypt(keyIV, cipherBufferAES)
 }

@@ -18,7 +18,8 @@ export const config = {
     name: 'AES-GCM',
     length: 256,
     tagLength: 128,
-    ivSize: 12 // 12 bytes / 96 bites
+    ivSize: 12, // 12 bytes / 96 bites
+    addSize: 1
   }
 }
 

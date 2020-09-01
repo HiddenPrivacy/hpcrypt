@@ -3,8 +3,9 @@ import importKey from './importKey'
 import exportKey from './exportKey'
 import encrypt from './encrypt'
 import decrypt from './decrypt'
-import generateKVH from './generateKVH'
-import importHash from './importHash'
+import generateKeyIV from './generateKeyIV'
+import importKeyIV from './importKeyIV'
+import exportKeyIV from './exportKeyIV'
 
 export default {
   generateKey,
@@ -12,8 +13,9 @@ export default {
   exportKey,
   encrypt,
   decrypt,
-  generateKVH,
-  importHash
+  generateKeyIV,
+  importKeyIV,
+  exportKeyIV
 }
 
-export { generateKey, importKey, exportKey, encrypt, decrypt, generateKVH, importHash }
+export { generateKey, importKey, exportKey, encrypt, decrypt, generateKeyIV, importKeyIV, exportKeyIV }

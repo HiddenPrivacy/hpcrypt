@@ -1,6 +1,5 @@
 import aes from './aes'
 import rsa from './rsa'
-import generateRandomBytes from './generateRandomBytes'
 import { encode } from './utils/base64'
 
 /**
@@ -12,11 +11,11 @@ import { encode } from './utils/base64'
  * @throws {Error}
  */
 export default async function(publicKey, buffer) {
-  const aesKVH = await aes.generateKVH()
-  const hashAES = encode(await aes.encrypt(aesKVH, buffer))
+  const aesKeyIV = await aes.generateKeyIV()
+  const hashAES = encode(await aes.encrypt(aesKeyIV, buffer))
 
   const keyRSA = await rsa.importPublicKey(publicKey)
-  const hashRSA = encode(await rsa.encrypt(keyRSA, aesKVH.hash))
+  const hashRSA = encode(await rsa.encrypt(keyRSA, await aes.exportKeyIV(aesKeyIV)))
 
   return [hashAES, hashRSA].join('@')
 }
