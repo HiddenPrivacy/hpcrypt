@@ -5,7 +5,7 @@ import subtle from '../utils/subtle'
  * learn more: https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/exportKey
  * @async
  * @params {CryptoKey} key
- * @returns {Int8Array}
+ * @returns {Uint8Array}
  * @throws {Error}
  */
 export default async function(key) {

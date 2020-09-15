@@ -4,7 +4,7 @@ import { config } from '../'
 /**
  * Import Use buffer to create AES key and Initialization vector. Returns object {key, iv}
  * @async
- * @params {Int8Array} buffer
+ * @params {Uint8Array} buffer
  * @returns {Object}
  * @throws {Error}
  */

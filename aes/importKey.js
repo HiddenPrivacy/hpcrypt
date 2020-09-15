@@ -5,7 +5,7 @@ import { config } from '../'
  * Import AES key
  * learn more: https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/importKey
  * @async
- * @params {Int8Array} keyData
+ * @params {Uint8Array} keyData
  * @returns {CryptoKey}
  * @throws {Error}
  */
