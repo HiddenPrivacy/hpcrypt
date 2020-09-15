@@ -7,9 +7,9 @@ import { config } from '../'
  * @async
  * @param {Object} keyIV -  object created with method importHash()
  * @param {CryptoKey} keyIV.key - AES key
- * @param {BufferSource} keyIV.iv - the initialization vector
+ * @param {Uint8Array} keyIV.iv - the initialization vector
  * @param {BufferSource} cipherBuffer
- * @returns {BufferSource}
+ * @returns {Uint8Array}
  * @throws {Error}
  */
 export default async function(keyIV, cipherBuffer) {
@@ -24,5 +24,5 @@ export default async function(keyIV, cipherBuffer) {
     keyIV.key,
     cipherBuffer
   )
-  return buffer
+  return new Uint8Array(buffer)
 }
